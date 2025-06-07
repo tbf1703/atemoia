@@ -3,14 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Atemoia Store</title>
+    <meta name="description" content="Atemoia Store - Afiliado oficial do Mercado Livre com os melhores produtos e ofertas exclusivas">
+    <meta name="keywords" content="atemoia, mercado livre, afiliado, compras online, ofertas">
+    <meta name="author" content="TET Soluções Digitais">
+    <title>Atemoia Store - Produtos Selecionados com Qualidade</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         /* Reset e Estilos Globais */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Arial', sans-serif;
+            font-family: 'Poppins', 'Arial', sans-serif;
         }
         
         body {
@@ -36,9 +42,10 @@
         }
         
         .logo {
-            position: absolute;
-            left: 20px;
-            top: 0px;  
+           display: flex;
+           justify-content: right;  
+           position: absolute;
+
         }
         
         .store-title {
@@ -52,14 +59,69 @@
             margin-top: 0.5rem;
             font-size: 0.9rem;
             max-width: 80%;
+            transition: all 0.3s ease;
         }
-        .affiliation-banner:hover{
-            background-color:#4F9652 ;
+        .affiliation-banner:hover {
+            background-color: #4F9652;
+            transform: scale(1.02);
         }
         
         header h1 {
             font-size: 2rem;
             margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+        
+        /* Banners Adicionais */
+        .promo-banners {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 2rem auto;
+            max-width: 1200px;
+            padding: 0 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .promo-banner {
+            background: linear-gradient(135deg, #4F9652, #08DF08);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+            flex: 1;
+            min-width: 300px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .promo-banner:hover {
+            transform: translateY(-5px);
+        }
+        
+        .promo-banner h2 {
+            margin-bottom: 0.5rem;
+            font-size: 1.5rem;
+        }
+        
+        .promo-banner p {
+            margin-bottom: 1rem;
+        }
+        
+        .banner-button {
+            display: inline-block;
+            background-color: white;
+            color: #4F9652;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+        
+        .banner-button:hover {
+            background-color: #2c3e50;
+            color: white;
         }
         
         /* Main Content */
@@ -67,6 +129,29 @@
             max-width: 1200px;
             margin: 2rem auto;
             padding: 0 1rem;
+        }
+        
+        .filters {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+        
+        .filter-btn {
+            padding: 0.5rem 1rem;
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .filter-btn:hover, .filter-btn.active {
+            background: #08DF08;
+            color: white;
+            border-color: #08DF08;
         }
         
         .catalog {
@@ -81,13 +166,14 @@
             border-radius: 8px;
             overflow: hidden;
             box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
             display: flex;
             flex-direction: column;
         }
         
         .catalog-item:hover {
             transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
         }
         
         .catalog-item img {
@@ -100,17 +186,28 @@
         .catalog-item .info {
             padding: 1rem;
             flex-grow: 1;
+            display: flex;
+            flex-direction: column;
         }
         
         .catalog-item h3 {
             margin-bottom: 0.5rem;
             color: #2c3e50;
+            font-size: 1.1rem;
         }
         
         .catalog-item p {
             color: #7f8c8d;
             font-size: 0.9rem;
             margin-bottom: 1rem;
+            flex-grow: 1;
+        }
+        
+        .price {
+            font-weight: bold;
+            color: #08DF08;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
         }
         
         .product-button {
@@ -122,7 +219,7 @@
             text-decoration: none;
             font-weight: bold;
             text-align: center;
-            transition: background-color 0.3s;
+            transition: background-color 0.3s, transform 0.2s;
             border: none;
             cursor: pointer;
             width: 100%;
@@ -130,11 +227,12 @@
         
         .product-button:hover {
             background-color: #4F9652;
+            transform: scale(1.02);
         }
         
         /* Footer */
         footer {
-            background-color: #2c3e50;
+            background-color: #08DF08;
             color: white;
             text-align: center;
             padding: 1.5rem 0;
@@ -145,54 +243,65 @@
             margin-bottom: 0.5rem;
         }
         
-      /* Botão do WhatsApp */
-.whatsapp-btn {
-    position: fixed;
-    right: 20px;
-    bottom: 20px;
-    background-color: #08DF08;
-    color: white;
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    text-align: center;
-    font-size: 30px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
-    z-index: 100;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
-    transition: all 0.10s ease;
-    animation: pulse 1s infinite;
-}
-
-.whatsapp-btn:hover {
-    background-color: #06B406;
-    transform: scale(1.1);
-    animation: none; /* Para a animação quando em hover */
-}
-
-/* Animação de pulso/pulo */
-@keyframes pulse {
-    0% {
-        transform: translateY(0);
-        box-shadow: 0 2px 10px rgba(0,0,0,0.2);
-    }
-    50% {
-        transform: translateY(-10px);
-        box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-    }
-    100% {
-        transform: translateY(0);
-        box-shadow: 0 2px 10px rgba(0,0,0,0.2);
-    }
-}
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 1rem 0;
+        }
         
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
         
+        .footer-links a:hover {
+            color: #08DF08;
+        }
+        
+        /* Botão do WhatsApp */
+        .whatsapp-btn {
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+            background-color: #08DF08;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            animation: pulse 1.5s infinite;
+        }
+
         .whatsapp-btn:hover {
-            background-color: #4F9554;
+            background-color: #06B406;
             transform: scale(1.1);
+            animation: none;
+        }
+
+        /* Animação de pulso/pulo */
+        @keyframes pulse {
+            0% {
+                transform: translateY(0) scale(1);
+                box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            }
+            50% {
+                transform: translateY(-5px) scale(1.05);
+                box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            }
+            100% {
+                transform: translateY(0) scale(1);
+                box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            }
         }
         
         /* Responsividade */
@@ -206,13 +315,28 @@
             }
             
             .logo {
-                height: 40px;
-                top: 15px;
+            position: absolute;
+            left: 30px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 250px; /* Aumentei significativamente o tamanho */
+            height: auto;
+            z-index: 10;
             }
             
             .affiliation-banner {
                 font-size: 0.8rem;
                 max-width: 90%;
+            }
+            
+            .promo-banners {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .promo-banner {
+                width: 100%;
+                min-width: auto;
             }
         }
         
@@ -231,142 +355,185 @@
             .header-content {
                 padding-top: 10px;
             }
+            
+            .whatsapp-btn {
+                width: 50px;
+                height: 50px;
+                font-size: 24px;
+            }
+
         }
     </style>
 </head>
 <body>
     <!-- Header com logo -->
     <header>
-        <img src="./imagens/atemoia_transparente.png" width="180" alt="Atemoia Store" class="logo">
+        <img src="./imagens/atemoia_transparente.png" width="180" alt="Logo Atemoia Store - Afiliado Mercado Livre" class="logo">
         <div class="header-content">
             <div class="store-title">
                 <h1>Atemoia Store</h1>
                 <p>Confira nossas melhores opções</p>
             </div>
-            <div class="affiliation-banner">
+            <div class="affiliation-banner" aria-label="Afiliado oficial do Mercado Livre">
                 Afiliado oficial do Mercado Livre | Produtos selecionados com garantia de qualidade
             </div>
         </div>
     </header>
     
+    <!-- Banners Promocionais -->
+    <div class="promo-banners">
+        <div class="promo-banner">
+            <h2>Frete Grátis</h2>
+            <p>Para compras acima de R$ 200 em todo o Brasil</p>
+            <a href="#produtos" class="banner-button" aria-label="Ver produtos com frete grátis">Compre Agora</a>
+        </div>
+        
+        <div class="promo-banner">
+            <h2>Ofertas Exclusivas</h2>
+            <p>Descontos de até 30% nos produtos selecionados</p>
+            <a href="#produtos" class="banner-button" aria-label="Ver ofertas exclusivas">Ver Ofertas</a>
+        </div>
+    </div>
+    
     <!-- Main Content -->
-    <div class="container">
+    <div class="container" id="produtos">
+        <div class="filters">
+            <button class="filter-btn active" data-filter="all">Todos</button>
+            <button class="filter-btn" data-filter="ofertas">Ofertas</button>
+            <button class="filter-btn" data-filter="frete-gratis">Frete Grátis</button>
+            <button class="filter-btn" data-filter="mais-vendidos">Mais Vendidos</button>
+        </div>
+        
         <div class="catalog">
             <!-- Item 1 -->
-            <div class="catalog-item">
-                <img src="https://via.placeholder.com/300x200?text=Produto+1" alt="Produto 1">
+            <div class="catalog-item" data-category="ofertas mais-vendidos">
+                <img src="https://via.placeholder.com/300x200?text=Produto+1" alt="Produto 1 - Oferta Especial" loading="lazy">
                 <div class="info">
                     <h3>Produto 1</h3>
-                    <p>Descrição breve do produto 1 e suas características.</p>
-                    <a href="https://mercadolivre.com/produto1" class="product-button" target="_blank">Ver no Mercado Livre</a>
+                    <p>Descrição breve do produto 1 e suas características principais.</p>
+                    <div class="price">R$ 99,90</div>
+                    <a href="https://mercadolivre.com/produto1" class="product-button" target="_blank" rel="noopener noreferrer">Ver no Mercado Livre</a>
                 </div>
             </div>
             
             <!-- Item 2 -->
-            <div class="catalog-item">
-                <img src="https://via.placeholder.com/300x200?text=Produto+2" alt="Produto 2">
+            <div class="catalog-item" data-category="frete-gratis">
+                <img src="https://via.placeholder.com/300x200?text=Produto+2" alt="Produto 2 - Frete Grátis" loading="lazy">
                 <div class="info">
                     <h3>Produto 2</h3>
-                    <p>Descrição breve do produto 2 e suas características.</p>
-                    <a href="https://mercadolivre.com/produto2" class="product-button" target="_blank">Ver no Mercado Livre</a>
+                    <p>Descrição breve do produto 2 e suas características principais.</p>
+                    <div class="price">R$ 149,90</div>
+                    <a href="https://mercadolivre.com/produto2" class="product-button" target="_blank" rel="noopener noreferrer">Ver no Mercado Livre</a>
                 </div>
             </div>
             
             <!-- Item 3 -->
-            <div class="catalog-item">
-                <img src="https://via.placeholder.com/300x200?text=Produto+3" alt="Produto 3">
+            <div class="catalog-item" data-category="ofertas">
+                <img src="https://via.placeholder.com/300x200?text=Produto+3" alt="Produto 3 - Oferta Limitada" loading="lazy">
                 <div class="info">
                     <h3>Produto 3</h3>
-                    <p>Descrição breve do produto 3 e suas características.</p>
-                    <a href="https://mercadolivre.com/produto3" class="product-button" target="_blank">Ver no Mercado Livre</a>
+                    <p>Descrição breve do produto 3 e suas características principais.</p>
+                    <div class="price">R$ 79,90</div>
+                    <a href="https://mercadolivre.com/produto3" class="product-button" target="_blank" rel="noopener noreferrer">Ver no Mercado Livre</a>
                 </div>
             </div>
             
             <!-- Item 4 -->
-            <div class="catalog-item">
-                <img src="https://via.placeholder.com/300x200?text=Produto+4" alt="Produto 4">
+            <div class="catalog-item" data-category="mais-vendidos">
+                <img src="https://via.placeholder.com/300x200?text=Produto+4" alt="Produto 4 - Mais Vendido" loading="lazy">
                 <div class="info">
                     <h3>Produto 4</h3>
-                    <p>Descrição breve do produto 4 e suas características.</p>
-                    <a href="https://mercadolivre.com/produto4" class="product-button" target="_blank">Ver no Mercado Livre</a>
+                    <p>Descrição breve do produto 4 e suas características principais.</p>
+                    <div class="price">R$ 129,90</div>
+                    <a href="https://mercadolivre.com/produto4" class="product-button" target="_blank" rel="noopener noreferrer">Ver no Mercado Livre</a>
                 </div>
             </div>
             
             <!-- Item 5 -->
-            <div class="catalog-item">
-                <img src="https://via.placeholder.com/300x200?text=Produto+5" alt="Produto 5">
+            <div class="catalog-item" data-category="frete-gratis mais-vendidos">
+                <img src="https://via.placeholder.com/300x200?text=Produto+5" alt="Produto 5 - Frete Grátis e Mais Vendido" loading="lazy">
                 <div class="info">
                     <h3>Produto 5</h3>
-                    <p>Descrição breve do produto 5 e suas características.</p>
-                    <a href="https://mercadolivre.com/produto5" class="product-button" target="_blank">Ver no Mercado Livre</a>
+                    <p>Descrição breve do produto 5 e suas características principais.</p>
+                    <div class="price">R$ 199,90</div>
+                    <a href="https://mercadolivre.com/produto5" class="product-button" target="_blank" rel="noopener noreferrer">Ver no Mercado Livre</a>
                 </div>
             </div>
             
             <!-- Item 6 -->
-            <div class="catalog-item">
-                <img src="https://via.placeholder.com/300x200?text=Produto+6" alt="Produto 6">
+            <div class="catalog-item" data-category="ofertas">
+                <img src="https://via.placeholder.com/300x200?text=Produto+6" alt="Produto 6 - Oferta Especial" loading="lazy">
                 <div class="info">
                     <h3>Produto 6</h3>
-                    <p>Descrição breve do produto 6 e suas características.</p>
-                    <a href="https://mercadolivre.com/produto6" class="product-button" target="_blank">Ver no Mercado Livre</a>
+                    <p>Descrição breve do produto 6 e suas características principais.</p>
+                    <div class="price">R$ 89,90</div>
+                    <a href="https://mercadolivre.com/produto6" class="product-button" target="_blank" rel="noopener noreferrer">Ver no Mercado Livre</a>
                 </div>
             </div>
             
             <!-- Item 7 -->
             <div class="catalog-item">
-                <img src="https://via.placeholder.com/300x200?text=Produto+7" alt="Produto 7">
+                <img src="https://via.placeholder.com/300x200?text=Produto+7" alt="Produto 7" loading="lazy">
                 <div class="info">
                     <h3>Produto 7</h3>
-                    <p>Descrição breve do produto 7 e suas características.</p>
-                    <a href="https://mercadolivre.com/produto7" class="product-button" target="_blank">Ver no Mercado Livre</a>
+                    <p>Descrição breve do produto 7 e suas características principais.</p>
+                    <div class="price">R$ 159,90</div>
+                    <a href="https://mercadolivre.com/produto7" class="product-button" target="_blank" rel="noopener noreferrer">Ver no Mercado Livre</a>
                 </div>
             </div>
             
             <!-- Item 8 -->
-            <div class="catalog-item">
-                <img src="https://via.placeholder.com/300x200?text=Produto+8" alt="Produto 8">
+            <div class="catalog-item" data-category="frete-gratis">
+                <img src="https://via.placeholder.com/300x200?text=Produto+8" alt="Produto 8 - Frete Grátis" loading="lazy">
                 <div class="info">
                     <h3>Produto 8</h3>
-                    <p>Descrição breve do produto 8 e suas características.</p>
-                    <a href="https://mercadolivre.com/produto8" class="product-button" target="_blank">Ver no Mercado Livre</a>
+                    <p>Descrição breve do produto 8 e suas características principais.</p>
+                    <div class="price">R$ 229,90</div>
+                    <a href="https://mercadolivre.com/produto8" class="product-button" target="_blank" rel="noopener noreferrer">Ver no Mercado Livre</a>
                 </div>
             </div>
             
             <!-- Item 9 -->
-            <div class="catalog-item">
-                <img src="https://via.placeholder.com/300x200?text=Produto+9" alt="Produto 9">
+            <div class="catalog-item" data-category="mais-vendidos">
+                <img src="https://via.placeholder.com/300x200?text=Produto+9" alt="Produto 9 - Mais Vendido" loading="lazy">
                 <div class="info">
                     <h3>Produto 9</h3>
-                    <p>Descrição breve do produto 9 e suas características.</p>
-                    <a href="https://mercadolivre.com/produto9" class="product-button" target="_blank">Ver no Mercado Livre</a>
+                    <p>Descrição breve do produto 9 e suas características principais.</p>
+                    <div class="price">R$ 69,90</div>
+                    <a href="https://mercadolivre.com/produto9" class="product-button" target="_blank" rel="noopener noreferrer">Ver no Mercado Livre</a>
                 </div>
             </div>
             
             <!-- Item 10 -->
-            <div class="catalog-item">
-                <img src="https://via.placeholder.com/300x200?text=Produto+10" alt="Produto 10">
+            <div class="catalog-item" data-category="ofertas">
+                <img src="https://via.placeholder.com/300x200?text=Produto+10" alt="Produto 10 - Oferta Especial" loading="lazy">
                 <div class="info">
                     <h3>Produto 10</h3>
-                    <p>Descrição breve do produto 10 e suas características.</p>
-                    <a href="https://mercadolivre.com/produto10" class="product-button" target="_blank">Ver no Mercado Livre</a>
+                    <p>Descrição breve do produto 10 e suas características principais.</p>
+                    <div class="price">R$ 119,90</div>
+                    <a href="https://mercadolivre.com/produto10" class="product-button" target="_blank" rel="noopener noreferrer">Ver no Mercado Livre</a>
                 </div>
             </div>
+            
             <!-- Item 11 -->
-            <div class="catalog-item">
-                <img src="https://via.placeholder.com/300x200?text=Produto+11" alt="Produto 11">
+            <div class="catalog-item" data-category="frete-gratis mais-vendidos">
+                <img src="https://via.placeholder.com/300x200?text=Produto+11" alt="Produto 11 - Frete Grátis e Mais Vendido" loading="lazy">
                 <div class="info">
                     <h3>Produto 11</h3>
-                    <p>Descrição breve do produto 11 e suas características.</p>
-                    <a href="https://mercadolivre.com/produto11" class="product-button" target="_blank">Ver no Mercado Livre</a>
+                    <p>Descrição breve do produto 11 e suas características principais.</p>
+                    <div class="price">R$ 179,90</div>
+                    <a href="https://mercadolivre.com/produto11" class="product-button" target="_blank" rel="noopener noreferrer">Ver no Mercado Livre</a>
                 </div>
             </div>
+            
             <!-- Item 12 -->
             <div class="catalog-item">
-                <img src="https://via.placeholder.com/300x200?text=Produto+12" alt="Produto 12">
+                <img src="https://via.placeholder.com/300x200?text=Produto+12" alt="Produto 12" loading="lazy">
                 <div class="info">
                     <h3>Produto 12</h3>
-                    <p>Descrição breve do produto 12 e suas características.</p>
-                    <a href="https://mercadolivre.com/produto12" class="product-button" target="_blank">Ver no Mercado Livre</a>
+                    <p>Descrição breve do produto 12 e suas características principais.</p>
+                    <div class="price">R$ 139,90</div>
+                    <a href="https://mercadolivre.com/produto12" class="product-button" target="_blank" rel="noopener noreferrer">Ver no Mercado Livre</a>
                 </div>
             </div>
         </div>
@@ -374,17 +541,24 @@
     
     <!-- Footer -->
     <footer>
+        <div class="footer-links">
+            <a href="#" aria-label="Página inicial">Início</a>
+            <a href="#produtos" aria-label="Nossos produtos">Produtos</a>
+            <a href="#" aria-label="Sobre nós">Sobre</a>
+            <a href="#" aria-label="Contato">Contato</a>
+        </div>
         <p>© 2025 Atemoia Store | Afiliado Mercado Livre | Todos os direitos reservados.</p>
         <p>Contato: (11) 96846-0946</p>
-        <p>Desenvolvido por : <img src="./imagens/tet_digital_transparente.png" width="20" height="20">TET Soluções Digitais</p>
+        <p>Desenvolvido por : TET Soluções Digitais</p>
+        <img src="./imagens/tet_digital_transparente.png" width="100" height="100" alt="TET Soluções Digitais">
     </footer>
     
     <!-- Botão do WhatsApp -->
-    <a href="https://wa.me/5511968460946?text=Olá, vim pelo site *Atemoia.*" class="whatsapp-btn" target="_blank" aria-label="Contato via WhatsApp">
-        <img src="./imagens/icone_whatsapp.png" width="50">
+    <a href="https://wa.me/5511968460946?text=Olá,%20vim%20pelo%20site%20*Atemoia*" class="whatsapp-btn" target="_blank" rel="noopener noreferrer" aria-label="Fale conosco pelo WhatsApp">
+        <img src="./imagens/icone_whatsapp.png" width="50" alt="Ícone do WhatsApp">
     </a>
     
-    <!-- Script para segurança e robustez -->
+    <!-- Scripts melhorados -->
     <script>
         // Proteção contra clickjacking
         if (self == top) {
@@ -393,14 +567,62 @@
             top.location = self.location;
         }
         
-        // Prevenção contra XSS
+        // Filtros de produtos
         document.addEventListener('DOMContentLoaded', function() {
-            // Sanitize qualquer entrada do usuário se aplicável
-        });
-        
-        // Otimização de performance
-        window.addEventListener('load', function() {
-            // Qualquer código de otimização pode ser adicionado aqui
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const catalogItems = document.querySelectorAll('.catalog-item');
+            
+            filterButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    // Remove active class from all buttons
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    // Add active class to clicked button
+                    button.classList.add('active');
+                    
+                    const filterValue = button.getAttribute('data-filter');
+                    
+                    catalogItems.forEach(item => {
+                        if (filterValue === 'all') {
+                            item.style.display = 'flex';
+                        } else {
+                            const categories = item.getAttribute('data-category');
+                            if (categories && categories.includes(filterValue)) {
+                                item.style.display = 'flex';
+                            } else {
+                                item.style.display = 'none';
+                            }
+                        }
+                    });
+                });
+            });
+            
+            // Otimização de performance - carregamento de imagens
+            if ('loading' in HTMLImageElement.prototype) {
+                // O navegador suporta lazy loading nativo
+                const lazyImages = document.querySelectorAll('img[loading="lazy"]');
+                lazyImages.forEach(img => {
+                    img.src = img.dataset.src;
+                });
+            } else {
+                // Fallback para browsers sem suporte a lazy loading
+                const lazyLoad = function() {
+                    const lazyImages = document.querySelectorAll('img[loading="lazy"]');
+                    
+                    lazyImages.forEach(img => {
+                        if (img.getBoundingClientRect().top < window.innerHeight + 100) {
+                            img.src = img.dataset.src;
+                            img.removeAttribute('loading');
+                        }
+                    });
+                };
+                
+                document.addEventListener('scroll', lazyLoad);
+                window.addEventListener('resize', lazyLoad);
+                window.addEventListener('orientationchange', lazyLoad);
+                
+                // Carrega imagens visíveis inicialmente
+                lazyLoad();
+            }
         });
     </script>
 </body>
